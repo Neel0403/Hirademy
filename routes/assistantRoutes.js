@@ -1,8 +1,18 @@
 import { Router } from "express";
-import { createAssistant } from "../controllers/assistantController";
+import {
+  deleteAssistant,
+  createAssistant,
+  getAssistantById,
+  updateAssistant,
+} from "../controllers/assistantController.js";
 
-const router  = Router()
+const router = Router();
 
-router.route("/",createAssistant)
+router.route("/").post(createAssistant);
+router
+  .route("/:assistant_id")
+  .get(getAssistantById)
+  .delete(deleteAssistant)
+  .put(updateAssistant);
 
-export default router
+export default router;

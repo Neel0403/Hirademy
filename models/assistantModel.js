@@ -6,11 +6,7 @@ const assistantSchema = new Schema({
     required: [true, "Assistant name is required"],
   },
   mobile: {
-    type: Number,
-    required: [true, "Mobile number is required"],
-  },
-  mobile: {
-    type: Number,
+    type: String,
     required: [true, "Mobile number is required"],
   },
   email: {
@@ -34,4 +30,4 @@ const assistantSchema = new Schema({
   },
 });
 
-modulr.exports = mongoose.model("Assistant", assistantSchema);
+export const Assistant = mongoose.model("Assistant", assistantSchema);
