@@ -5,7 +5,9 @@ const createAssistant = async (req, res) => {
     console.log("Received POST request to create assistant:", req.body);
     const newAssistant = new Assistant(req.body);
     newAssistant.save();
-    return res.status(200).json("Assistant created successfully");
+    return res
+      .status(200)
+      .json({ newAssistant, message: "Assistant created successfully" });
   } catch (error) {
     return res.status(500).json("Error while creating the assistant");
   }
