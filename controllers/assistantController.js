@@ -32,7 +32,8 @@ const updateAssistant = async (req, res) => {
   try {
     const updatedAssistant = await Assistant.findByIdAndUpdate(
       req.params.assistant_id,
-      req.body
+      req.body,
+      { new: true }
     );
     if (!updatedAssistant) {
       return res.status(400).json("Error while updating the assistant");
